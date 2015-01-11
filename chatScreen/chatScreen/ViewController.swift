@@ -21,6 +21,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         txtChat.delegate = self
         
         doRegisterObserver()
+        
+        tvChat.estimatedRowHeight = 50
+        tvChat.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    var tempChat: [String] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
+    var tempChat: [String] = ["one message wouldn't hurt", "two line might hurt a little, but let's see how it works", "three lines is probably a pain in the ass and this cell should have nice height and we do have three lines here", "four", "five", "six", "seven", "eight", "nine", "ten", "Now, I’m not an auto-layout master. I’ve seldom used it before. So it took a bit of trial and error to get the layout set up correctly. The crucial thing was to make sure there were no constraints limiting the height of my labels, since I want them to resize themselves to fit whatever text goes in them."]
     
     
     
@@ -42,18 +45,60 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var txtChat: UITextField!
     
     
+    var theCell: ViewChatCell!
+    
+    
     @IBAction func btnClose(sender: AnyObject) {
         txtChat.resignFirstResponder()
     }
+
+/*
+
+Apple WWDC 2014 told us to use these two methods:
+    tvChat.estimatedRowHeight = 50
+    tvChat.rowHeight = UITableViewAutomaticDimension
     
+instead to these two (commented) functions below:
     
-    
+*/
+/*
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        return 50
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if(theCell == nil)
+        {
+            theCell = tvChat.dequeueReusableCellWithIdentifier("ChatCell") as ViewChatCell
+        }
+        
+        theCell.lblTimeStamp.text = "2015-01-10T11:51:00Z"
+        theCell.lblTimeStamp.font = UIFont(name: "Helvetica Neue", size: 12)
+
+        theCell.lblChat.text = tempChat[indexPath.row]
+        theCell.lblChat.font = UIFont(name: "Helvetica Neue", size: 17)
+        
+        theCell.layoutIfNeeded()
+        
+        var theCellSize: CGSize = theCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        
+        println("cell #\(indexPath.row) height = \(theCellSize.height)")
+        
+        return theCellSize.height + 1
+    }
+*/
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var theCell: ViewChatCell = tvChat.dequeueReusableCellWithIdentifier("ChatCell") as ViewChatCell
         
         theCell.lblTimeStamp.text = "2015-01-10T11:51:00Z"
+        //theCell.lblTimeStamp.font = UIFont(name: "Helvetica Neue", size: 12)
+        
         theCell.lblChat.text = tempChat[indexPath.row]
+        //theCell.lblChat.font = UIFont(name: "Helvetica Neue", size: 17)
         
         return theCell as UITableViewCell
     }

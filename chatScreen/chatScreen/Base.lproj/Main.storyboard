@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="chatScreen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5R-WK-M2k">
-                                        <rect key="frame" x="93" y="21" width="134" height="21"/>
+                                        <rect key="frame" x="93" y="30" width="134" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -31,16 +31,16 @@
                                 <color key="backgroundColor" red="0.97647064920000004" green="0.0" blue="0.47450983520000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="S5R-WK-M2k" secondAttribute="trailing" constant="93" id="KHV-Aq-HVd"/>
-                                    <constraint firstAttribute="bottom" secondItem="S5R-WK-M2k" secondAttribute="bottom" constant="22" id="KId-1Y-XuJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="S5R-WK-M2k" secondAttribute="bottom" constant="13" id="KId-1Y-XuJ"/>
                                     <constraint firstItem="S5R-WK-M2k" firstAttribute="leading" secondItem="6bS-KF-2Ts" secondAttribute="leading" constant="93" id="mip-Mn-LkD"/>
                                     <constraint firstAttribute="height" constant="64" id="nmi-nv-0Q6"/>
-                                    <constraint firstItem="S5R-WK-M2k" firstAttribute="top" secondItem="6bS-KF-2Ts" secondAttribute="top" constant="21" id="z3e-bf-3zY"/>
+                                    <constraint firstItem="S5R-WK-M2k" firstAttribute="top" secondItem="6bS-KF-2Ts" secondAttribute="top" constant="30" id="z3e-bf-3zY"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-lc-frE">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xNG-rD-VdH">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xNG-rD-VdH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="464"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -54,14 +54,17 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lDg-uW-QSc" id="2ip-F2-VLb">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="lblChat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWC-NH-wg7">
-                                                            <rect key="frame" x="8" y="16" width="304" height="26"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="lblChat" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWC-NH-wg7">
+                                                            <rect key="frame" x="8" y="22" width="304" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lblTimeStamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiC-eo-lkI">
-                                                            <rect key="frame" x="8" y="8" width="304" height="15"/>
+                                                            <rect key="frame" x="8" y="2" width="304" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="7Zc-YN-ryl"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -71,12 +74,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="RiC-eo-lkI" secondAttribute="trailing" constant="8" id="BJq-tj-7VS"/>
                                                         <constraint firstAttribute="trailing" secondItem="SWC-NH-wg7" secondAttribute="trailing" constant="8" id="hjy-da-oH0"/>
                                                         <constraint firstItem="SWC-NH-wg7" firstAttribute="leading" secondItem="2ip-F2-VLb" secondAttribute="leading" constant="8" id="l8s-E7-Tsr"/>
-                                                        <constraint firstItem="SWC-NH-wg7" firstAttribute="top" secondItem="RiC-eo-lkI" secondAttribute="bottom" constant="-7" id="nTx-nH-PtB"/>
-                                                        <constraint firstAttribute="bottom" secondItem="SWC-NH-wg7" secondAttribute="bottom" constant="7" id="oJF-Mo-QYr"/>
+                                                        <constraint firstItem="SWC-NH-wg7" firstAttribute="top" secondItem="RiC-eo-lkI" secondAttribute="bottom" id="nTx-nH-PtB"/>
+                                                        <constraint firstAttribute="bottom" secondItem="SWC-NH-wg7" secondAttribute="bottom" constant="6" id="oJF-Mo-QYr"/>
                                                         <constraint firstItem="RiC-eo-lkI" firstAttribute="leading" secondItem="2ip-F2-VLb" secondAttribute="leading" constant="8" id="xh4-KZ-8CA"/>
-                                                        <constraint firstItem="RiC-eo-lkI" firstAttribute="top" secondItem="2ip-F2-VLb" secondAttribute="top" constant="8" id="yhP-9f-oKk"/>
+                                                        <constraint firstItem="RiC-eo-lkI" firstAttribute="top" secondItem="2ip-F2-VLb" secondAttribute="top" constant="2" id="yhP-9f-oKk"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
                                                     <outlet property="lblChat" destination="SWC-NH-wg7" id="Szg-bw-fCj"/>
                                                     <outlet property="lblTimeStamp" destination="RiC-eo-lkI" id="UmD-P6-Vjl"/>
